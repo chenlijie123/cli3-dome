@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-   <el-form class="loginForm" :model="formData" ref="login" :rules="rules" label-width="80px" :inline="false" size="normal">
+   <el-form class="loginForm" :model="formData" ref="login" :rules="rules" label-width="80px" :inline="false" size="default">
     <el-form-item label="账号">
       <el-input v-model="formData.name"></el-input>
     </el-form-item>
@@ -8,14 +8,13 @@
       <el-input v-model="formData.password"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm(login)">登陆</el-button>
+      <el-button type="primary" @click="submitForm">登陆</el-button>
       <!-- <el-button>取消</el-button> -->
     </el-form-item>
    </el-form>
 
   </div>
 </template>
-
 <script>
 import { reactive, toRefs } from 'vue'
 export default {
@@ -37,14 +36,17 @@ export default {
       }
     })
 
-    const submitForm (elform) {
-      elform.validate((valid, fields) => {
-        if (valid) {
-          console.log('submit!')
-        } else {
-          console.log('error submit!', fields)
-        }
-      })
+    // const submitForm (elform) {
+    //   elform.validate((valid, fields) => {
+    //     if (valid) {
+    //       console.log('submit!')
+    //     } else {
+    //       console.log('error submit!', fields)
+    //     }
+    //   })
+    // }
+    function submitForm (val) {
+      console.log('------', val)
     }
 
     return {
@@ -62,6 +64,7 @@ export default {
   .loginForm {
     margin: 150px auto;
     width: 400px;
+    height: 37.5rem;
   }
 }
 </style>
