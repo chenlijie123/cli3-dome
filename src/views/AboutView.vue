@@ -25,15 +25,28 @@
       </div>
     </template>
   </Suspense>
+  <!-- <div>{{x}} {{y}}</div> -->
 </template>
 
 <script setup>
 import { ref, reactive, provide, defineAsyncComponent } from 'vue'
+// import { useMouse } from '@/utils/mouse.js'
 
 import Props from '@/components/Props.vue'
 import Emits from '@/components/test/index.vue'
 import CustomInput from '@/components/CustomInput.vue'
 
+// const x = ref(0)
+// const y = ref(0)
+// const { x, y } = useMouse()
+// function update (val) {
+//   // console.log('2222222', event)
+//   x.value = val.pageX
+//   y.value = val.pageY
+// }
+
+// onMounted(() => addEventListener('mousemove', update))
+// onUnmounted(() => removeEventListener('mousemove', update))
 // import AsyncInfo from '@/components/AsyncInfo.vue'
 // import error from '@/components/error.vue'
 
@@ -42,9 +55,16 @@ const AsyncComp = defineAsyncComponent(() => {
     setTimeout(() => {
       resolve(import('@/components/AsyncInfo.vue'))
     }, 3000)
-    // reactive(import('@/components/error.vue'))
   })
 })
+// const AsyncComp = defineAsyncComponent(() => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(import('@/components/AsyncInfo.vue'))
+//     }, 3000)
+//     // reactive(import('@/components/error.vue'))
+//   })
+// })
 
 // const AsyncComp = defineAsyncComponent({
 //   loader: () => import('@/views/HomeView.vue'),
