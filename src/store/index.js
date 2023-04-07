@@ -1,21 +1,20 @@
-import { createStore } from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 
-export default createStore({
-  state: {
-    isCollapse: false
-  },
-  getters: {
-  },
-  mutations: {
-    SET_COLLAPSE (state) {
-      state.isCollapse = !state.isCollapse
-    }
-  },
-  actions: {
-    handCollapse ({ commit }, paylod) {
-      commit('SET_COLLAPSE')
-    }
-  },
+import crm from './modules/crm'
+// import user from './modules/user'
+// import permission from './modules/permission'
+import getters from './getters'
+// Vue.use(Vuex)
+import { createStore } from 'vuex'
+const store = createStore({
+
   modules: {
-  }
+    crm
+    // user,
+    // permission
+  },
+  getters
 })
+
+export default store

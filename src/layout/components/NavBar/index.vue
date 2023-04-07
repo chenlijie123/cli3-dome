@@ -13,10 +13,17 @@
 </template>
 
 <script setup>
-import { Store } from 'vuex'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
+
+const store = useStore()
+const iscollapse = computed(() => store.getters.iscollapse)
+
+console.log('iscollapse', iscollapse)
 function collapseChange () {
-  Store.dispatch('handCollapse')
+  store.dispatch('crm/navbarBtn')
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -26,7 +33,7 @@ function collapseChange () {
   line-height: 50px;
   font-size: 14px;
   overflow: hidden;
-
+  background: #97a8be;
   .hamburger {
     float: left;
     padding: 0 15px;

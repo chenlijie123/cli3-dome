@@ -1,7 +1,7 @@
 <template>
-  <div class="common-layout">
+  <div>
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="auto">
         <SideBar></SideBar>
       </el-aside>
       <el-container>
